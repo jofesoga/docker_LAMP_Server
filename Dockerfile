@@ -55,9 +55,6 @@ RUN apt-get update && \
 RUN apt-get install mariadb-common mariadb-server mariadb-client -y
 
 FROM registry.access.redhat.com/ubi9/nodejs-20:1-24
-COPY lib/hello.js /opt/app-root/src/hello.js
-ENTRYPOINT ["node", "/opt/app-root/src/hello.js"]
-
 
 ENV LOG_STDOUT **Boolean**
 ENV LOG_STDERR **Boolean**
