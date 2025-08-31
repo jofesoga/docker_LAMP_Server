@@ -53,7 +53,7 @@ RUN apt-get update && \
     apt-get install -y mariadb-server mariadb-client mariadb-common && \
     rm -rf /var/lib/apt/lists/*
 RUN apt-get install mariadb-common mariadb-server mariadb-client -y
-RUN npm install
+RUN npm i tailwindcss@3 postcss autoprefixer
 
 ENV LOG_STDOUT **Boolean**
 ENV LOG_STDERR **Boolean**
