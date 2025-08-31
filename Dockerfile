@@ -5,14 +5,15 @@ LABEL Description="Cutting-edge LAMP stack, based on Ubuntu 16.04 LTS. Includes 
 	Usage="docker run -d -p [HOST WWW PORT NUMBER]:80 -p [HOST DB PORT NUMBER]:3306 -v [HOST WWW DOCUMENT ROOT]:/var/www/html -v [HOST DB DOCUMENT ROOT]:/var/lib/mysql fauria/lamp" \
 	Version="1.0"
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get update
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update
 RUN apt-get upgrade -y
 
 COPY debconf.selections /tmp/
 RUN debconf-set-selections /tmp/debconf.selections
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y zip unzip
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
+RUN apt-get install -y zip unzip
+RUN apt-get install -y \
 	php7.0 \
 	php7.0-bz2 \
 	php7.0-cgi \
@@ -46,10 +47,13 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
 	php7.0-xmlrpc \
 	php7.0-xsl \
 	php7.0-zip
-RUN DEBIAN_FRONTEND=noninteractive apt-get install apache2 libapache2-mod-php7.0 -y
-RUN DEBIAN_FRONTEND=noninteractive apt-get install mariadb-common mariadb-server mariadb-client -y
-RUN DEBIAN_FRONTEND=noninteractive apt-get install postfix -y
-RUN DEBIAN_FRONTEND=noninteractive apt-get install git nodejs npm composer nano tree vim curl ftp -y
+RUN apt-get install apache2 libapache2-mod-php7.0 -y
+RUN apt-get update && \
+    apt-get install -y mariadb-server mariadb-client mariadb-common && \
+    rm -rf /var/lib/apt/lists/*
+RUN apt-get install mariadb-common mariadb-server mariadb-client -y
+RUN apt-get install postfix -y
+RUN apt-get install git nodejs npm composer nano tree vim curl ftp -y
 RUN npm install -g bower grunt-cli@1.0.0 gulp@2.3.0
 
 ENV LOG_STDOUT **Boolean**
@@ -58,6 +62,7 @@ ENV LOG_LEVEL warn
 ENV ALLOW_OVERRIDE All
 ENV DATE_TIMEZONE UTC
 ENV TERM dumb
+
 
 COPY add_customer.php /var/www/html/
 COPY add_product.php /var/www/html/
