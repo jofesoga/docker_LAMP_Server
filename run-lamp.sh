@@ -34,8 +34,8 @@ cat << EOB
     
     **********************************************
     *                                            *
-    *    Docker image: stack/lamp                *
-    *                                            *
+    * Docker image: stack/lamp                *
+    * https://github.com/jofesoga/docker_LAMP_Server                *
     *                                            *
     **********************************************
 
