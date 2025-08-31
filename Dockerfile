@@ -8,6 +8,7 @@ LABEL Description="Cutting-edge LAMP stack, based on Ubuntu 16.04 LTS. Includes 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
 RUN apt-get upgrade -y
+RUN ln -s -f /bin/true /usr/bin/chfn
 
 COPY debconf.selections /tmp/
 RUN debconf-set-selections /tmp/debconf.selections
