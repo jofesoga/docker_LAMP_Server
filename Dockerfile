@@ -53,9 +53,10 @@ RUN apt-get update && \
     apt-get install -y mariadb-server mariadb-client mariadb-common && \
     rm -rf /var/lib/apt/lists/*
 RUN apt-get install mariadb-common mariadb-server mariadb-client -y
-RUN export PATH="/bin/nodescripts:$PATH"
-RUN apt-get install nodejs npm composer nano tree vim curl ftp -y
-RUN npm install -g bower grunt-cli@1.0.0 gulp@2.3.0
+
+FROM registry.access.redhat.com/ubi9/nodejs-20:1-24
+COPY lib/hello.js /opt/app-root/src/hello.js
+ENTRYPOINT ["node", "/opt/app-root/src/hello.js"]
 
 
 ENV LOG_STDOUT **Boolean**
