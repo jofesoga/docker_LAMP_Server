@@ -83,7 +83,7 @@ COPY reports.php /var/www/html/
 COPY testconn.php /var/www/html/
 
 COPY run-lamp.sh /usr/sbin/
-RUN chown /usr/sbin/run-lamp.sh
+RUN chown -R : /usr/sbin/run-lamp.sh
 
 
 VOLUME /var/www/html
