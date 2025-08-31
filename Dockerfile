@@ -57,7 +57,7 @@ ENV LOG_STDERR **Boolean**
 ENV LOG_LEVEL warn
 ENV ALLOW_OVERRIDE All
 ENV DATE_TIMEZONE UTC
-ENV TERM mysql
+ENV TERM dumb
 
 COPY add_customer.php /var/www/html/
 COPY add_product.php /var/www/html/
