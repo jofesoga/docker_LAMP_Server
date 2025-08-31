@@ -5,7 +5,7 @@ LABEL Description="Cutting-edge LAMP stack, based on Ubuntu 16.04 LTS. Includes 
 	Usage="docker run -d -p [HOST WWW PORT NUMBER]:80 -p [HOST DB PORT NUMBER]:3306 -v [HOST WWW DOCUMENT ROOT]:/var/www/html -v [HOST DB DOCUMENT ROOT]:/var/lib/mysql fauria/lamp" \
 	Version="1.0"
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get update --allow-releaseinfo-change
+RUN DEBIAN_FRONTEND=noninteractive apt-get update
 RUN apt-get upgrade -y
 
 COPY debconf.selections /tmp/
