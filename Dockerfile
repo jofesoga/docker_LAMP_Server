@@ -9,6 +9,9 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
 RUN apt-get upgrade -y
 RUN ln -s -f /bin/true /usr/bin/chfn
+RUN echo "deb http://deb.debian.org/debian/ stable main contrib non-free" > /etc/apt/sources.list \
+        && echo "deb http://deb.debian.org/debian/ stable-updates main contrib non-free" >> /etc/apt/sources.list \
+        && echo "deb http://security.debian.org/debian-security stable/updates main contrib non-free" >> /etc/apt/sources.list
 
 COPY debconf.selections /tmp/
 RUN debconf-set-selections /tmp/debconf.selections
