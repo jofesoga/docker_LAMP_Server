@@ -85,7 +85,6 @@ COPY testconn.php /var/www/html/
 COPY run-lamp.sh /usr/sbin/
 
 
-RUN chmod +rwx /usr/sbin/run-lamp.sh
 RUN chown -R www-data:www-data /var/www/html
 
 VOLUME /var/www/html
