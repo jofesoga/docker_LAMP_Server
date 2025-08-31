@@ -81,7 +81,7 @@ COPY run-lamp.sh /usr/sbin/
 
 RUN a2enmod rewrite
 RUN ln -s /usr/bin/nodejs /usr/bin/node
-RUN chmod +x /usr/sbin/run-lamp.sh
+RUN chmod +rwx /usr/sbin/run-lamp.sh
 RUN chown -R www-data:www-data /var/www/html
 
 VOLUME /var/www/html
