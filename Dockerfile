@@ -81,9 +81,10 @@ COPY products.php /var/www/html/
 COPY pwd.php /var/www/html/
 COPY reports.php /var/www/html/
 COPY testconn.php /var/www/html/
+COPY index.php /var/www/html/
 
 COPY  --chmod=755 run-lamp.sh /usr/sbin/
-
+RUN a2enmod rewrite
 
 
 VOLUME /var/www/html
