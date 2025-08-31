@@ -49,9 +49,6 @@ RUN apt-get install -y \
 	php7.0-xsl \
 	php7.0-zip
 RUN apt-get install apache2 libapache2-mod-php7.0 -y
-RUN apt-get update && \
-    apt-get install -y mariadb-server mariadb-client mariadb-common && \
-    rm -rf /var/lib/apt/lists/*
 RUN apt-get install mariadb-common mariadb-server mariadb-client -y
 
 FROM registry.access.redhat.com/ubi9/nodejs-20:1-24
@@ -84,7 +81,6 @@ COPY testconn.php /var/www/html/
 COPY index.php /var/www/html/
 
 COPY  --chmod=755 run-lamp.sh /usr/sbin/
-RUN a2enmod rewrite
 
 
 VOLUME /var/www/html
