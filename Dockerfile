@@ -56,6 +56,7 @@ RUN echo exit 101 > /usr/sbin/policy-rc.d
 RUN apt-get install nodejs -y
 
 
+
 ENV LOG_STDOUT **Boolean**
 ENV LOG_STDERR **Boolean**
 ENV LOG_LEVEL warn
@@ -95,3 +96,4 @@ VOLUME /etc/apache2
 EXPOSE 80
 EXPOSE 3306
 
+CMD ["/usr/sbin/run-lamp.sh"]
