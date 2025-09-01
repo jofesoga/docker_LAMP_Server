@@ -53,9 +53,9 @@ RUN apt-get install mariadb-common mariadb-server mariadb-client -y
 
 FROM registry.access.redhat.com/ubi9/nodejs-20:1-24
 
-ENV LOG_STDOUT **Boolean**
-ENV LOG_STDERR **Boolean**
-ENV LOG_LEVEL warn
+ENV LOG_STDOUT true
+ENV LOG_STDERR true
+ENV LOG_LEVEL debug
 ENV ALLOW_OVERRIDE All
 ENV DATE_TIMEZONE UTC
 ENV TERM dumb
