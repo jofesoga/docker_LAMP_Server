@@ -88,6 +88,7 @@ COPY testconn.php /var/www/html/
 COPY index.php /var/www/html/
 
 COPY  --chmod=755 run-lamp.sh /usr/sbin/
+RUN a2enmod rewrite
 
 
 VOLUME /var/www/html
