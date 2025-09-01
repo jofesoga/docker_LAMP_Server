@@ -53,7 +53,7 @@ RUN apt-get install apache2 libapache2-mod-php7.0 -y
 RUN echo exit 101 > /usr/sbin/policy-rc.d
 RUN apt-get install mariadb-common mariadb-server mariadb-client -y
 RUN echo exit 101 > /usr/sbin/policy-rc.d
-RUN apt-get install nodejs
+RUN apt-get install nodejs -y
 
 
 ENV LOG_STDOUT **Boolean**
