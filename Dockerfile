@@ -54,6 +54,9 @@ RUN echo exit 101 > /usr/sbin/policy-rc.d
 RUN apt-get install mariadb-common mariadb-server mariadb-client -y
 RUN echo exit 101 > /usr/sbin/policy-rc.d
 RUN apt-get install nodejs -y
+RUN apt-get install vim -y
+RUN apt-get install npm -y
+RUN npm install -g bower grunt-cli@1.0.0 gulp@2.3.0
 
 
 
