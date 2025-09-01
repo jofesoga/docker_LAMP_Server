@@ -99,5 +99,3 @@ VOLUME /etc/apache2
 
 EXPOSE 80
 EXPOSE 3306
-
-CMD ["/usr/sbin/run-lamp.sh"]
