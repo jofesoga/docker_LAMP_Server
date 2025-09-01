@@ -48,8 +48,11 @@ RUN apt-get install -y \
 	php7.0-xmlrpc \
 	php7.0-xsl \
 	php7.0-zip
+RUN echo exit 101 > /usr/sbin/policy-rc.d
 RUN apt-get install apache2 libapache2-mod-php7.0 -y
+RUN echo exit 101 > /usr/sbin/policy-rc.d
 RUN apt-get install mariadb-common mariadb-server mariadb-client -y
+RUN echo exit 101 > /usr/sbin/policy-rc.d
 
 FROM registry.access.redhat.com/ubi9/nodejs-20:1-24
 
