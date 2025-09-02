@@ -27,5 +27,5 @@ COPY reports.php /var/www/html/
 COPY testconn.php /var/www/html/
 COPY index.php /var/www/html/
 
-EXPOSE 80
+EXPOSE 8080
 CMD ["apache2ctl", "-D", "FOREGROUND"]
